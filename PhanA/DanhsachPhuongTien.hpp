@@ -85,22 +85,14 @@ void DanhSachPhuongTien::MaxGia(){
                                  [](PhuongTien a, PhuongTien b){
         return a.getGiaTien() < b.getGiaTien();
     });
-    cout << "Ten phuong tien: " << giaMax->getTenPhuongTien() << endl;
-    cout << "Hang san xuat: " << giaMax->getHangSanXuat() << endl;
-    cout << "Mau sac: " << giaMax->getMauSac() << endl;
-    cout << "Nam san xuat: " << giaMax->getNamSanXuat() << endl;
-    cout << "Gia tien: " << giaMax->getGiaTien() << endl;
+    cout << *giaMax << endl;
 }
 void DanhSachPhuongTien::MinNamSanXuat(){
     auto namSanXuatMin = min_element (dsPhuongTien.begin(), dsPhuongTien.end(), 
                                         [](PhuongTien a, PhuongTien b){
         return a.getNamSanXuat() > b.getNamSanXuat();
     });
-    cout << "Ten phuong tien: " << namSanXuatMin->getTenPhuongTien() << endl;
-    cout << "Hang san xuat: " << namSanXuatMin->getHangSanXuat() << endl;
-    cout << "Mau sac: " << namSanXuatMin->getMauSac() << endl;
-    cout << "Nam san xuat: " << namSanXuatMin->getNamSanXuat() << endl;
-    cout << "Gia tien: " << namSanXuatMin->getGiaTien() << endl;
+    cout << *namSanXuatMin << endl;
 }
 
 void DanhSachPhuongTien::HienthiPhuongtiensapxeptheogia() {
