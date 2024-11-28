@@ -95,13 +95,23 @@ bool checkSNT(int n) {
 // Xoa tat ca cac so nguyen to trong danh sach
 void QuanLyDaySo::XoaTatCaCacSoNguyenTo() {
     Node<int>* p = list.getFront();
+    Node<int>* prev = nullptr;
+
     while (p != nullptr) {
-        if (checkSNT(p->data)) {
-            list.remove(p->data);
+        if (checkSNT(p->data)) { // Nếu là số nguyên tố
+            if (prev == nullptr) { // Nếu là phần tử đầu tiên
+                list.remove(p->data); // Gọi hàm xóa phần tử đầu
+                p = list.getFront(); // Cập nhật lại con trỏ p
+            } else {
+                list.remove(p->data); // Xóa phần tử p
+                p = prev->next; // Cập nhật lại con trỏ p
+            }
+        } else {
+            prev = p; // Nếu không phải số nguyên tố, di chuyển prev
+            p = p->next; // Di chuyển p đến phần tử tiếp theo
         }
-        p = p->next;
     }
-    cout << "Da xoa tat ca cac so nguyen to" << endl;
+    cout << "Đã xóa tất cả các số nguyên tố trong danh sách." << endl;
 }
 
 // Xoa phan tu trung nhau, chi giu lai 1 phan tu duy nhat
